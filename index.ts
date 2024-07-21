@@ -1,11 +1,9 @@
-// const express = require("express");
 import express, { Express } from "express";
-// const app = express();
-// const dotenv = require("dotenv");
 import { config } from "dotenv";
-// const DBConnect = require("./config/db.ts");
 import DBConnect from "./config/db";
 import { userRouter } from "./routes/userRoutes";
+import { contactRouter } from "./routes/contactRoute";
+import cors from "cors";
 
 config();
 
@@ -13,7 +11,10 @@ export const app: Express = express();
 
 app.use(express.json());
 
+app.use(cors());
+
 app.use("/api/v1", userRouter);
+app.use("/api/v1", contactRouter);
 
 app.get("/", (req: any, res: any) => {
   res.send("hello");
