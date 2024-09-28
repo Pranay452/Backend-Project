@@ -5,6 +5,7 @@ interface User {
   email: string;
   password: string;
   contact_number: Number;
+  isAdmin: any;
 }
 
 //Defining user schema
@@ -13,6 +14,7 @@ const user: Schema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   contact_number: { type: Number },
+  isAdmin: { type: Boolean, default: false },
 });
 
 // Export model

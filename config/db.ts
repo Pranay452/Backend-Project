@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 
 const DBConnection = () => {
   mongoose
-    .connect(process.env.MONGOURIUSERS!)
+    .connect(process.env.MONGOURIUSERS!, {
+      serverSelectionTimeoutMS: 5000,
+    })
     .then(() => {
       console.log("DB connected successfully");
     })
