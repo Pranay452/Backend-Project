@@ -10,7 +10,7 @@ export const orderValidations = {
       .withMessage("Name must be a string")
       .trim()
       .toLowerCase()
-      .isLength({ min: 3, max: 15 })
+      .isLength({ min: 2, max: 15 })
       .withMessage("Username must be at least 3 character long and max 15"),
     body("address.mobile")
       .exists({ checkFalsy: true })

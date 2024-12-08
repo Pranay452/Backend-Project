@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/typing", "node"],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": false,
+    "allowUnusedLabels": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "sourceRoot": "./src"
+  },
+  "exclude": ["**/*.spec.ts", "tests", "./dist/**/*"]
+}
