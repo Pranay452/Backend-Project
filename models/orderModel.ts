@@ -21,8 +21,8 @@ interface IOrder extends Document {
   address: IAddress;
   artSize: string;
   numberOfFaces: string;
-  specialNote?: string;
-  additionalRequirements?: string;
+  // specialNote?: string;
+  // additionalRequirements?: string;
 }
 
 const AddressSchema: Schema = new Schema({
@@ -67,14 +67,14 @@ const OrderSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  specialNote: {
-    type: String,
-    required: false,
-  },
-  additionalRequirements: {
-    type: String,
-    required: false,
-  },
+  // specialNote: {
+  //   type: String,
+  //   required: false,
+  // },
+  // additionalRequirements: {
+  //   type: String,
+  //   required: false,
+  // },
 });
 
 const Order = mongoose.model<IOrder>("Order", OrderSchema);

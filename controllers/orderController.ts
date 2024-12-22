@@ -14,8 +14,8 @@ export const createOrder = async (req: any, res: any) => {
       estimatedTime,
       artSize,
       numberOfFaces,
-      specialNote,
-      additionalRequirements,
+      // specialNote,
+      // additionalRequirements,
     } = req.body;
 
     const newOrder = new OrderSchema({
@@ -26,8 +26,8 @@ export const createOrder = async (req: any, res: any) => {
       estimatedTime,
       artSize,
       numberOfFaces,
-      specialNote,
-      additionalRequirements,
+      // specialNote,
+      // additionalRequirements,
     });
 
     await newOrder.save();
