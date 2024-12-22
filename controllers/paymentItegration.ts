@@ -103,17 +103,9 @@ export const generateOrderId = async (req: Request, res: Response) => {
 };
 
 export const verifyPayment = async (req: any, res: Response) => {
-  const {
-    orderId,
-    paymentId,
-    amount,
-    email,
-    username,
-    contactNumber,
-    specialNote,
-    additionalRequirements,
-  } = req.body;
-  // console.log("username, email", name, email);
+  const { orderId, paymentId, amount, email, username, contactNumber } =
+    req.body;
+
   const razorpaySignature = req.headers["x-razorpay-signature"];
 
   let hmac = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET || "");
@@ -132,8 +124,6 @@ export const verifyPayment = async (req: any, res: Response) => {
       amount,
       username,
       contact_number: contactNumber,
-      specialNote,
-      additionalRequirements,
     });
     await paymentdetails.save();
 

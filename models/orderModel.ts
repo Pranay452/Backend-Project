@@ -21,6 +21,8 @@ interface IOrder extends Document {
   address: IAddress;
   artSize: string;
   numberOfFaces: string;
+  specialNote?: string;
+  additionalRequirements?: string;
 }
 
 const AddressSchema: Schema = new Schema({
@@ -64,6 +66,14 @@ const OrderSchema: Schema = new Schema({
   numberOfFaces: {
     type: String,
     required: true,
+  },
+  specialNote: {
+    type: String,
+    required: false,
+  },
+  additionalRequirements: {
+    type: String,
+    required: false,
   },
 });
 
