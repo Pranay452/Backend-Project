@@ -5,6 +5,8 @@ interface Payment {
   orderId: string;
   paymentId: string;
   amount: number;
+  specialNote: string;
+  additionalRequirements: string;
 }
 
 const Payment: Schema = new Schema({
@@ -12,5 +14,7 @@ const Payment: Schema = new Schema({
   orderId: { type: String, required: true },
   paymentId: { type: String, required: true },
   amount: { type: String, required: true },
+  specialNote: { type: String, required: true },
+  additionalRequirements: { type: String, required: true },
 });
 export default mongoose.model<Payment>("payment", Payment);

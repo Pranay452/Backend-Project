@@ -103,8 +103,16 @@ export const generateOrderId = async (req: Request, res: Response) => {
 };
 
 export const verifyPayment = async (req: any, res: Response) => {
-  const { orderId, paymentId, amount, email, username, contactNumber } =
-    req.body;
+  const {
+    orderId,
+    paymentId,
+    amount,
+    email,
+    username,
+    contactNumber,
+    specialNote,
+    additionalRequirements,
+  } = req.body;
   // console.log("username, email", name, email);
   const razorpaySignature = req.headers["x-razorpay-signature"];
 
@@ -124,6 +132,8 @@ export const verifyPayment = async (req: any, res: Response) => {
       amount,
       username,
       contact_number: contactNumber,
+      specialNote,
+      additionalRequirements,
     });
     await paymentdetails.save();
 
