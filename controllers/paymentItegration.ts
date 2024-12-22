@@ -4,7 +4,12 @@ import crypto from "crypto";
 import Payment from "../models/paymentModel";
 import nodemailer from "nodemailer";
 
-const sendEmail = async (email: string, amount: any) => {
+export const sendEmail = async (
+  email: string,
+  amount: any,
+  artSize?: any,
+  numberOfFaces?: any
+) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -58,6 +63,7 @@ const sendEmail = async (email: string, amount: any) => {
         <p style="font-size: 16px; color: #333;">
           A new order has been placed and a payment of ₹${amount} has been received. <br />
           Customer Email: ${email}
+          This is the Details for No Of Faces and Art Size ${artSize} & ${numberOfFaces}
         </p>
         <hr style="border: none; height: 1px; background-color: #eee; margin: 20px 0;" />
         <p style="font-size: 14px; color: #777;">This is an automatic notification.</p>

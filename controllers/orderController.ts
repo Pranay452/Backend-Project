@@ -2,12 +2,19 @@ import fs from "fs";
 import OrderSchema from "../models/orderModel";
 import Order from "../models/orderModel";
 import Payment from "../models/paymentModel";
+import { sendEmail } from "./paymentItegration";
 
 export const createOrder = async (req: any, res: any) => {
   try {
-    const { addFrame, address, image, createdAt, estimatedTime } = req.body;
-    console.log("createdAt", createdAt);
-    console.log("estimatedTime", estimatedTime);
+    const {
+      addFrame,
+      address,
+      image,
+      createdAt,
+      estimatedTime,
+      artSize,
+      numberOfFaces,
+    } = req.body;
 
     const newOrder = new OrderSchema({
       image,
@@ -15,11 +22,13 @@ export const createOrder = async (req: any, res: any) => {
       address: address,
       createdAt,
       estimatedTime,
+      artSize,
+      numberOfFaces,
     });
 
-    console.log("newOrder", newOrder);
-
     await newOrder.save();
+
+    await sendEmail(address.email, newOrder.artSize, newOrder.numberOfFaces);
 
     res
       .status(201)

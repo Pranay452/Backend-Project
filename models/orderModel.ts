@@ -19,6 +19,8 @@ interface IOrder extends Document {
   image: string; // store image as a base64 string
   addFrame: boolean;
   address: IAddress;
+  artSize: string;
+  numberOfFaces: string;
 }
 
 const AddressSchema: Schema = new Schema({
@@ -52,6 +54,14 @@ const OrderSchema: Schema = new Schema({
     required: true,
   },
   estimatedTime: {
+    type: String,
+    required: true,
+  },
+  artSize: {
+    type: String,
+    required: true,
+  },
+  numberOfFaces: {
     type: String,
     required: true,
   },
